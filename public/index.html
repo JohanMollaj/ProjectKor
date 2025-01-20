@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Project Kor</title>
+</head>
+<body id="home">
+    <div class="header">
+        <div class="header-left">
+            <p>[ logo ]</p>
+        </div>
+        <div class="header-center">
+            <button onclick="scrollToSection('home')" class="button header-button">
+                <span>Home</span>
+            </button>
+            <button onclick="scrollToSection('faq')" class="button header-button">
+                <span>FAQ</span>
+            </button>
+            <button onclick="scrollToSection('socials')" class="button header-button">
+                <span>Socials</span>
+            </button>
+        </div>
+        <div class="header-right">
+            <button class="button signup"><span>Sign Up</span></button>
+        </div>
+    </div>
+
+    <div class="ad1">
+        <img src="./bg1.png">
+        <h1>Sample text for now</h1>
+        <button class="button download"><span>DOWNLOAD NOW!</span></button>
+    </div>
+
+    <div class="platforms">
+        <h1 class="h1 platforms-text">PLATFORMS SUPPORTING PROJECT KOR</h1>
+        <div class="buttons-div">
+            <button class="button platform"><span>Android</span></button>
+            <button class="button platform"><span>iOS</span></button>
+            <button class="button platform"><span>Windows</span></button>
+            <button class="button platform"><span>PS4</span></button>
+        </div>
+    </div>
+
+    <div class="ad2">
+        <h1>PLAY PROJECT KOR</h1>
+        <p>
+            Relive the thrill of classic battle royale moments! Dive into familiar battlegrounds, rediscover timeless strategies, and dominate like you did in the early days.
+        </p>
+        <button class="button download"><span>DOWNLOAD NOW!</span></button>
+    </div>
+
+    <div class="faq" id="faq">
+        <h1 class="faq-text">PROJECT KOR FAQS</h1>
+        <h2 class="question">Can I play creative using Project Kor?</h2>
+        <p class="answer">
+            Yes, you absolutely can!
+        </p>
+        <h2 class="question">What platforms is Project Kor on?</h2>
+        <p class="answer">
+            Currently it is on Windows, iOS and Android!
+        </p>
+        <h2 class="question">Can I play Project kor with a controller? If so which ones </h2>
+        <p class="answer">
+            insert answer here
+        </p>
+        <h2 class="question">Is voice chat working on project Kor?</h2>
+        <p class="answer">
+            insert answer here
+        </p>
+    </div>
+
+    <div class="socials" id="socials">
+        <h1>WHERE TO FIND US</h1>
+        <a href=""><span class="info"><i class="fa-brands fa-discord"></i>Discord</span></a>
+        <a href="https://twitter.com/projectkor?s=21"><span class="info"><i class="fa-brands fa-twitter"></i>Twitter</span></a>
+        <a href=""><span class="info"><i class="fa-brands fa-tiktok"></i>TikTok</span></a>
+    </div>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+    
+            fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Redirect to the dashboard
+                    window.location.href = data.redirectUrl;
+                } else {
+                    // Show error message
+                    const errorDiv = document.getElementById("error");
+                    errorDiv.style.display = "block";
+                    errorDiv.textContent = data.message || "Invalid credentials.";
+                }
+            })
+            .catch(error => {
+                console.error("Error during login:", error);
+                alert("An error occurred while trying to log in. Please try again.");
+            });
+        });
+
+        function scrollToSection(section){
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>    
+</body>
+</html>
