@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Sign In</title>
+</head>
+<body id="home" class="signin-body">
+  <div class="header">
+        <div class="header-left">
+            <img src="logo.jpg" class="logo">
+        </div>
+        <div class="header-center">
+            <button onclick="scrollToSection('home')" class="button header-button">
+                <span>Home</span>
+            </button>
+            <button onclick="scrollToSection('faq')" class="button header-button">
+                <span>FAQ</span>
+            </button>
+            <button onclick="scrollToSection('socials')" class="button header-button">
+                <span>Socials</span>
+            </button>
+        </div>
+        <div class="header-right"></div>
+    </div>
+
+    <div class="sign-in-container">
+        <form class="sign-in-form" method="get">
+            <h2>Sign In</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="button signup"><span>Sign In</span></button>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </form>
+    </div>
+    
+    <script>
+        function scrollToSection(section){
+            window.location.href = `index.html#${section}`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles.css">
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <title>Project Kor</title>
 </head>
-<body id="home">
+<body id="home" class="main-body">
     <div class="header">
         <div class="header-left">
-            <p>[ logo ]</p>
+            <img src="logo.jpg" class="logo">
         </div>
         <div class="header-center">
             <button onclick="scrollToSection('home')" class="button header-button">
@@ -24,7 +25,8 @@
             </button>
         </div>
         <div class="header-right">
-            <button class="button signup"><span>Sign Up</span></button>
+            <button class="button signup"
+            onclick="window.location.href='signin.html';"><span>Sign Up</span></button>
         </div>
     </div>
 
@@ -35,8 +37,8 @@
     </div>
 
     <div class="platforms">
-        <h1 class="h1 platforms-text">PLATFORMS SUPPORTING PROJECT KOR</h1>
-        <div class="buttons-div">
+        <h1 class="h1 platforms-title">PLATFORMS SUPPORTING PROJECT KOR</h1>
+        <div class="platform-buttons">
             <button class="button platform"><span>Android</span></button>
             <button class="button platform"><span>iOS</span></button>
             <button class="button platform"><span>Windows</span></button>

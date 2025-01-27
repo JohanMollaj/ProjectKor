@@ -1,6 +1,6 @@
 @import url(https://db.onlinewebfonts.com/c/cdc8c3de1e6bd5a9a67c6a001f9fedd0?family=Burbank+Big+Condensed+Black);
 
-body {
+.main-body {
     font-family: "Burbank Big Condensed Black";
     width: 100%;
     background-color: #252525;
@@ -10,6 +10,11 @@ body {
     padding-top: 97px;
     letter-spacing: 0.5px;
 }
+
+.logo{
+    width: 50px;
+}
+
 .header{
     position: fixed;
     top: 0;
@@ -37,16 +42,15 @@ body {
 }
 
 .platforms{
-    padding-top: 30px;
-    text-align: center;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    text-align: center; /* Center the content */
+    padding: 40px 20px; /* Add spacing for aesthetics */
+    color: #fff; /* Text color */
 }
-.buttons-div{
-    gap: 10px;
-    align-items: center;
+.platform-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 .platform{
     display: inline-block;
@@ -56,6 +60,31 @@ body {
     height: 120px;
     margin: 0 5px;
     transition: border 0.1s ease;
+}
+.button.platform {
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border: 0 solid #333;
+    border-radius: 10px;
+    background-color: #424242;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+/* Tablet/iPad View (2x2 grid) */
+@media (max-width: 1024px) {
+    .button.platform {
+        flex: 1 1 calc(50% - 20px); /* Take up 50% of the row, minus the gap */
+        max-width: 300px;
+    }
+}
+
+/* Mobile View (Single column) */
+@media (max-width: 768px) {
+    .button.platform {
+        flex: 1 1 100%; /* Full width for each button */
+        max-width: none; /* Remove max width restriction */
+    }
 }
 
 .ad1 {
@@ -103,12 +132,21 @@ body {
 
 .header-button{
     color:white;
+    font-size: 1.5rem;
     background: none;
     padding: 10px 15px;
     transition: background 0.3s ease-in-out;
 }
 .header-button:hover{
     background-color: #f2f2f22c;
+}
+@media (max-width: 500px) {
+    .header-button {
+        font-size: 1.2rem;
+    }
+    .signup span{
+        font-size: 1rem;
+    }
 }
 
 .signup, .download{
@@ -144,9 +182,17 @@ body {
         transform: translateY(-2px); /* Move up slightly */
     }
 }
+@media (max-width: 500px) {
+    .signup{
+        padding: 10px 15px 
+    }
+}
 
 .ad2{ /*work in progress*/
     padding: 50px;
+}
+.ad2 p{
+    font-size: 22px;
 }
 .faq{
     padding: 0 50px;
@@ -187,4 +233,124 @@ body {
 a{
     color: white;
     text-decoration: none;
+}
+
+/*SIGN UP STYLES*/
+
+.signin-body{
+    font-family: "Burbank Big Condensed Black";
+    color: #f2f2f2;
+    background-image: url('bg2.png'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire body */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+    height: 100vh; /* Ensures the body takes the full viewport height */
+    overflow: hidden;
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.sign-in-container {
+    background-color: hsla(0, 0%, 0%, 0.8);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.sign-in-form h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+.signup-body{
+    font-family: "Burbank Big Condensed Black";
+    color: #f2f2f2;
+    background-image: url('bg2.png'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire body */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+    height: 100vh; /* Ensures the body takes the full viewport height */
+    overflow: hidden;
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.sign-up-container {
+    background-color: hsla(0, 0%, 0%, 0.8);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.sign-up-form h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.signin-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+.signin-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
 }

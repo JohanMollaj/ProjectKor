@@ -13,6 +13,9 @@ templates = Jinja2Templates(directory="static")
 @app.get("/")
 async def root(request: Request):
     return templates.TemplateResponse(name="index.html", request=request)
+@app.get("/signin")
+async def root(request: Request):
+    return templates.TemplateResponse(name="signin.html", request=request)
 
 @app.post("/login")
 async def login(request: Request, username: str = Form(...), password: str = Form(...)):
