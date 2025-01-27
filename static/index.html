@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="ad1">
-        <img src="./bg1.png">
+        <img src="{{ url_for('static', path='bg1.png') }}">
         <h1>Sample text for now</h1>
         <button class="button download"><span>DOWNLOAD NOW!</span></button>
     </div>
